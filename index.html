@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер привычек Lumen</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+    <div class="page">
+        <div class="main-content-separator">
+            <aside class="aside">
+                <div class="aside-wrapper">
+                    <div class="logotype">
+                        <div class="logotype-figure"><img class="logotype-list-img" src="./img/logotype.svg" alt="Логотип"></div>
+                        <p class="logotype-text">lumen</p>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <ul class="sidebar-nav-list">
+                            <li class="sidebar-nav-item sidebar-nav-item-active">
+                                <a href="index.html" class="sidebar-nav-link sidebar-nav-link-today">Сегодня</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="calendar.html" class="sidebar-nav-link sidebar-nav-link-calendar">Календарь</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="habit.html" class="sidebar-nav-link sidebar-nav-link-statistic">Привычки</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="line"></div>
+                    <section class="my-goals">
+                        <h2 class="my-goals-title">Мои цели</h2>
+                        <ul class="my-goals-list" id="goals-list">
+                            <li class="my-goals-list-item">
+                                <button class="sidebar-goals-button" data-goal="all">
+                                    <div class="sidebar-goals-dot dot-all"></div>
+                                    <span class="sidebar-goals-title">Все задачи</span>
+                                </button>
+                            </li>
+                            <li class="my-goals-list-item">
+                                <button class="sidebar-goals-button" data-goal="health">
+                                    <div class="sidebar-goals-dot dot-health"></div>
+                                    <span class="sidebar-goals-title">Здоровье</span>
+                                </button>
+                            </li>
+                            <li class="my-goals-list-item">
+                                <button class="sidebar-goals-button" data-goal="study">
+                                    <div class="sidebar-goals-dot dot-study"></div>
+                                    <span class="sidebar-goals-title">Учёба</span>
+                                </button>
+                            </li>
+                            <li class="my-goals-list-item">
+                                <button class="sidebar-goals-button" data-goal="work">
+                                    <div class="sidebar-goals-dot dot-work"></div>
+                                    <span class="sidebar-goals-title">Работа</span>
+                                </button>
+                            </li>
+                            <li class="my-goals-list-item">
+                                <button class="sidebar-goals-button" data-goal="food">
+                                    <div class="sidebar-goals-dot dot-food"></div>
+                                    <span class="sidebar-goals-title">Питание</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </aside>
+            <main class="main">
+                <section class="welcome">
+                    <div class="welcome-content">
+                        <div class="welcome-content-title-wrapper">
+                            <h1 class="welcome-content-title"></h1>
+                            <button id="edit-btn" class="edit-name-btn"><img class="edit-img" src="img/edit.svg" alt="Изменить"></button>
+                        </div>
+                        <p class="welcome-content-subtitle"></p>
+                    </div>
+                    <button type="button" class="add-habit-btn" id="open-form">Добавить привычку</button>
+                </section>
+                <section class="progress">
+                    <div class="progress-content">
+                        <p class="progress-label">Эта неделя</p>
+                        <h2 class="progress-title">Ты в отличном ритме</h2>
+                        <p class="progress-completed"></p>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar">
+                                <div id="weekly-progress-bar" class="progress-bar-completed"></div>
+                            </div>
+                            <p id="weekly-progress-bar-info" class="progress-bar-info"></p>
+                        </div>
+                        <div class="progress-streak-wrapper">
+                            <div class="progress-streak-img-wrapper"><img class="progress-streak-img" src="./img/checkmark.svg" alt=""></div>
+                            <p class="progress-streak-info"></p>
+                        </div>
+                    </div>
+                    <div class="progress-calendar-wrapper">
+                        <ul class="progress-calendar-list">
+                        </ul>
+                    </div>
+                </section>
+                <div class="dashboard-grid">
+                    <section class="today-habits">
+                        <h3 class="today-habits-title">Сегодняшние привычки</h3>
+                        <p class="today-habits-completed"></p>
+                        <div class="progress-bar-wrapper today-progress-bar-wrapper">
+                            <div class="progress-bar today-progress-bar">
+                                <div id="today-progress-bar" class="progress-bar-completed today-progress-bar-completed"></div>
+                            </div>
+                            <p id="today-progress-bar-info" class="progress-bar-info today-progress-bar-info">1</p>
+                        </div>
+                        <ul id="today-habits-list" class="today-habits-list">
+                        </ul>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="modal" id="habit-modal">
+        <div class="form-wrapper">
+            <button type="button" class="close-form-btn" id="close-form">×</button>
+
+            <form class="habit-form" id="habit-form">
+                <div id="form-message" class="form-message" role="alert" hidden></div>
+                <input
+                    id="habit-title"
+                    type="text"
+                    placeholder="Название привычки"
+                    required
+                >
+
+                <select id="habit-goal">
+                    <option value="health">Здоровье</option>
+                    <option value="study">Учёба</option>
+                    <option value="work">Работа</option>
+                    <option value="food">Питание</option>
+                </select>
+
+                <fieldset class="habit-days">
+                    <legend>Дни выполнения</legend>
+                    <div class="checkbox-wrapper">
+                        <label>
+                        <input type="checkbox" name="days" value="mon">
+                        Пн
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="tue">
+                        Вт
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="wed">
+                        Ср
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="thu">
+                        Чт
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="fri">
+                        Пт
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="sat">
+                        Сб
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="sun">
+                        Вс
+                    </label>
+                    </div>
+                </fieldset>
+
+                <label for="habit-time">Время выполнения</label>
+                <input id="habit-time" type="time" required>
+
+                <button type="submit">Добавить</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal name-modal" id="name-modal">
+    <div class="form-wrapper">
+        <form class="habit-form" id="name-form">
+        <h2>Добро пожаловать!</h2>
+        <p>Как вас зовут?</p>
+
+        <label for="user-name">Ваше имя</label>
+        <input
+            id="user-name"
+            type="text"
+            required
+            minlength="2"
+            autocomplete="name"
+        >
+
+        <button type="submit">Начать</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

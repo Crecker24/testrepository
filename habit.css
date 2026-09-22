@@ -1,0 +1,68 @@
+.main::before,
+.main::after {
+    display: none;
+}
+
+.habit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.all-habits-filter {
+    margin-bottom: 36px;
+}
+
+.filter-title {
+    margin-bottom: 20px;
+}
+
+.filter-list {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+}
+
+.filter-button {
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.all-habits-title {
+    margin-bottom: 20px;
+}
+
+.habit-btn {
+    font-weight: bold;
+    border: none;
+    padding: 8px;
+}
+
+.all-habits-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.habit-delete-btn {
+    color: red;
+}
+
+.is-active {
+    border: 2px solid #2e6755;
+}
+
+@media (max-width: 680px) {
+    .filter-list {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .all-habits-button-wrapper {
+        align-items: stretch;
+    }
+}

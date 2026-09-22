@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер привычек Lumen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calendar.css">
+    <script type="module" src="calendar.js" defer></script>
+</head>
+<body>
+    <div class="page">
+        <div class="main-content-separator">
+            <aside class="aside">
+                <div class="aside-wrapper">
+                    <div class="logotype">
+                        <div class="logotype-figure"><img class="logotype-list-img" src="./img/logotype.svg" alt="Логотип"></div>
+                        <p class="logotype-text">lumen</p>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <ul class="sidebar-nav-list">
+                            <li class="sidebar-nav-item">
+                                <a href="index.html" class="sidebar-nav-link sidebar-nav-link-today">Сегодня</a>
+                            </li>
+                            <li class="sidebar-nav-item sidebar-nav-item-active">
+                                <a href="calendar.html" class="sidebar-nav-link sidebar-nav-link-calendar">Календарь</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="habit.html" class="sidebar-nav-link sidebar-nav-link-statistic">Привычки</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <main class="main">
+                <header class="calendar-header">
+                    <h1 class="calendar-title">Календарь привычек</h1>
+                </header>
+                <div class="calendar-grid-template">
+                    <article class="calendar-card">
+                    <header class="calendar-card-header">
+                        <div class="calendar-card-header-wrapper">
+                            <h3 class="calendar-card-month">Сентябрь 2026</h3>
+                            <p class="calendar-card-completed">24 из 31 запланированных действий выполнено</p>
+                        </div>
+                        <div class="calendar-card-btn-wrapper">
+                            <button id="prev-month" class="calendar-control-btn" type="button" aria-label="Предыдущий месяц">
+                                <span class="calendar-arrow calendar-arrow-left"></span>
+                            </button>
+                            <button id="next-month" class="calendar-control-btn" type="button" aria-label="Следующий месяц">
+                                <span class="calendar-arrow calendar-arrow-right"></span>
+                            </button>
+                        </div>
+                    </header>
+                    <div class="calendar-wrapper">
+                        <div class="calendar-weekdays">
+                            <span>ПН</span>
+                            <span>ВТ</span>
+                            <span>СР</span>
+                            <span>ЧТ</span>
+                            <span>ПТ</span>
+                            <span>СБ</span>
+                            <span>ВС</span>
+                        </div>
+
+                        <ul class="calendar-grid"></ul>
+                    </div>
+                    </article>
+                    <aside class="calendar-info">
+                        <div class="month-result">
+                            <h3 class="month-result-title">Итоги месяца</h3>
+                            <p id="monthly-progress-bar-info" class="month-result-percent">82%</p>
+                            <p class="month-result-description">общий прогресс</p>
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar">
+                                    <div id="monthly-progress-bar" class="progress-bar-completed"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calendar-legend">
+                            <h3 class="calendar-legend-title">Обозначения</h3>
+                            <ul class="calendar-legend-list">
+                                <li class="calendar-legend-list-item">
+                                    <div class="calendar-legend-list-item-circle completed-circle">
+                                        <span class="circle-checkmark"></span>
+                                    </div>
+                                    <p class="calendar-legend-list-item-description">Всё выполнено</p>
+                                </li>
+                                <li class="calendar-legend-list-item">
+                                    <div class="calendar-legend-list-item-circle not-completed-circle">
+                                        <span class="not-completed-circle-text">1/2</span>
+                                    </div>
+                                    <p class="calendar-legend-list-item-description">Выполнено частично</p>
+                                </li>
+                                <li class="calendar-legend-list-item">
+                                    <div class="calendar-legend-list-item-circle next-circle">
+                                        <span class="circle-next">1/2</span>
+                                    </div>
+                                    <p class="calendar-legend-list-item-description">Предстоящий день</p>
+                                </li>
+                                <li class="calendar-legend-list-item">
+                                    <div class="calendar-legend-list-item-circle not-planned-circle">
+                                        <span class="circle-not-planned">-</span>
+                                    </div>
+                                    <p class="calendar-legend-list-item-description">Нет запланированных привычек</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

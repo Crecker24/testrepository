@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трекер привычек Lumen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="habit.css">
+    <script type="module" src="habit.js" defer></script>
+</head>
+<body>
+    <div class="page">
+        <div class="main-content-separator">
+            <aside class="aside">
+                <div class="aside-wrapper">
+                    <div class="logotype">
+                        <div class="logotype-figure"><img class="logotype-list-img" src="./img/logotype.svg" alt="Логотип"></div>
+                        <p class="logotype-text">lumen</p>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <ul class="sidebar-nav-list">
+                            <li class="sidebar-nav-item">
+                                <a href="index.html" class="sidebar-nav-link sidebar-nav-link-today">Сегодня</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="calendar.html" class="sidebar-nav-link sidebar-nav-link-calendar">Календарь</a>
+                            </li>
+                            <li class="sidebar-nav-item sidebar-nav-item-active">
+                                <a href="habit.html" class="sidebar-nav-link sidebar-nav-link-statistic">Привычки</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <main class="main">
+                <header class="habit-header">
+                    <div class="habit-header-content">
+                        <h2 class="header-title">Все привычки</h2>
+                        <p class="header-subtitle">Настраивай свой ритм и редактируй привычки</p>
+                    </div>
+                    <button type="button" class="add-habit-btn" id="open-form">Добавить привычку</button>
+                </header>
+                <section class="all-habits-filter">
+                    <h3 class="filter-title">Фильтр по цели</h3>
+                    <ul id="filter-list" class="filter-list">
+                        <li class="filter-list-item">
+                            <button type="button" class="filter-button all is-active" data-goal="all">
+                                <span class="sidebar-goals-title">Все задачи</span>
+                            </button>
+                        </li>
+                        <li class="filter-list-item">
+                            <button type="button" class="filter-button health" data-goal="health">
+                                <span class="sidebar-goals-title">Здоровье</span>
+                            </button>
+                        </li>
+                        <li class="filter-list-item">
+                            <button type="button" class="filter-button study" data-goal="study">
+                                <span class="sidebar-goals-title">Учёба</span>
+                            </button>
+                        </li>
+                        <li class="filter-list-item">
+                            <button type="button" class="filter-button work" data-goal="work">
+                                <span class="sidebar-goals-title">Работа</span>
+                            </button>
+                        </li>
+                        <li class="filter-list-item">
+                            <button type="button" class="filter-button food" data-goal="food">
+                                <span class="sidebar-goals-title">Питание</span>
+                            </button>
+                        </li>
+                    </ul>
+                </section>
+                <section class="all-habits">
+                    <h2 class="all-habits-title">Все привычки</h2>
+                    <ul id="habits-list" class="habits-list today-habits-list"></ul>
+                </section>
+            </main>
+        </div>
+    </div>
+    <div class="modal" id="habit-modal">
+        <div class="form-wrapper">
+            <button type="button" class="close-form-btn" id="close-form">×</button>
+
+            <form class="habit-form" id="habit-form">
+                <div id="form-message" class="form-message" role="alert" hidden></div>
+                <input
+                    id="habit-title"
+                    type="text"
+                    placeholder="Название привычки"
+                    required
+                >
+
+                <select id="habit-goal">
+                    <option value="health">Здоровье</option>
+                    <option value="study">Учёба</option>
+                    <option value="work">Работа</option>
+                    <option value="food">Питание</option>
+                </select>
+
+                <fieldset class="habit-days">
+                    <legend>Дни выполнения</legend>
+                    <div class="checkbox-wrapper">
+                        <label>
+                        <input type="checkbox" name="days" value="mon">
+                        Пн
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="tue">
+                        Вт
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="wed">
+                        Ср
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="thu">
+                        Чт
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="fri">
+                        Пт
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="sat">
+                        Сб
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="days" value="sun">
+                        Вс
+                    </label>
+                    </div>
+                </fieldset>
+
+                <label for="habit-time">Время выполнения</label>
+                <input id="habit-time" type="time" required>
+
+                <button type="submit">Добавить</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
